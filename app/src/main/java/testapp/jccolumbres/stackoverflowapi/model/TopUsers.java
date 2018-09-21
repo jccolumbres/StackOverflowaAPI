@@ -13,7 +13,7 @@ public class TopUsers {
     @SerializedName("location")
     private String location;
 
-    @SerializedName("badge_count")
+    @SerializedName("badge_counts")
     private Badges badges;
 
     public TopUsers(String username, Integer reputation, String location, Badges badges) {
