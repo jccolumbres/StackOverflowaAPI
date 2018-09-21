@@ -1,7 +1,9 @@
-package testapp.jccolumbres.stackoverflowapi;
+package testapp.jccolumbres.stackoverflowapi.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import testapp.jccolumbres.stackoverflowapi.R;
 
 public class ListActivity extends AppCompatActivity {
 
