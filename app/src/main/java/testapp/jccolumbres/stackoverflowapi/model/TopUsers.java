@@ -1,9 +1,19 @@
 package testapp.jccolumbres.stackoverflowapi.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class TopUsers {
+
+    @SerializedName("display_name")
     private String username;
+
+    @SerializedName("reputation")
     private Integer reputation;
+
+    @SerializedName("location")
     private String location;
+
+    @SerializedName("badge_count")
     private Badges badges;
 
     public TopUsers(String username, Integer reputation, String location, Badges badges) {

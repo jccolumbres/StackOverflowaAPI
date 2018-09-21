@@ -4,9 +4,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class Badges {
 
-    @SerializedName("")
+    @SerializedName("bronze")
     private Integer bronze;
+
+    @SerializedName("silver")
     private Integer silver;
+
+    @SerializedName("gold")
     private Integer gold;
 
 
