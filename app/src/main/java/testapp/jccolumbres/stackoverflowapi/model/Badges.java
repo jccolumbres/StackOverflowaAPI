@@ -20,24 +20,24 @@ public class Badges {
         this.setGold(gold);
     }
 
-    public Integer getBronze() {
-        return bronze;
+    public String getBronze() {
+        return bronze.toString();
     }
 
     public void setBronze(Integer bronze) {
         this.bronze = bronze;
     }
 
-    public Integer getSilver() {
-        return silver;
+    public String getSilver() {
+        return silver.toString();
     }
 
     public void setSilver(Integer silver) {
         this.silver = silver;
     }
 
-    public Integer getGold() {
-        return gold;
+    public String getGold() {
+        return gold.toString();
     }
 
     public void setGold(Integer gold) {

@@ -31,8 +31,8 @@ public class TopUsers {
         this.username = username;
     }
 
-    public Integer getReputation() {
-        return reputation;
+    public String getReputation() {
+        return reputation.toString();
     }
 
     public void setReputation(Integer reputation) {
