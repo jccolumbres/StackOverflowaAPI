@@ -63,7 +63,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.itemViewHolder
     @Override
     public void onBindViewHolder(@NonNull itemViewHolder holder, int position) {
         holder.username.setText(users.get(position).getUsername());
-        holder.reputation.setText(users.get(position).getReputation());
+        holder.reputation.setText(users.get(position).getReputation().toString());
         holder.location.setText(users.get(position).getLocation());
 //        holder.totalBronze.setText(users.get(position).getBadges().getBronze());
 //        holder.totalSilver.setText(users.get(position).getBadges().getSilver());
@@ -73,16 +73,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.itemViewHolder
                 users.get(position).getBadges().entrySet().iterator();
 
         Map.Entry<String,Integer> pair = it.next();
-        holder.goldLbl.setText(pair.getKey() + " : ");
-        holder.totalGold.setText(pair.getValue().toString());
-
-        pair = it.next();
         holder.silverLbl.setText(pair.getKey() + " : ");
         holder.totalSilver.setText(pair.getValue().toString());
 
         pair = it.next();
         holder.bronzeLbl.setText(pair.getKey() + " : ");
         holder.totalBronze.setText(pair.getValue().toString());
+
+        pair = it.next();
+        holder.goldLbl.setText(pair.getKey() + " : ");
+        holder.totalGold.setText(pair.getValue().toString());
+
+
 
     }
 
@@ -107,9 +109,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.itemViewHolder
             totalBronze = (TextView) v.findViewById(R.id.tvBronzeBadges);
             totalGold = (TextView) v.findViewById(R.id.tvGoldBadges);
 
-            totalGold = (TextView) v.findViewById(R.id.tvGoldLabel);
-            totalSilver = (TextView) v.findViewById(R.id.tvSilverLabel);
-            totalBronze = (TextView) v.findViewById(R.id.tvBronzeLabel);
+            goldLbl = (TextView) v.findViewById(R.id.tvGoldLabel);
+            silverLbl = (TextView) v.findViewById(R.id.tvSilverLabel);
+            bronzeLbl = (TextView) v.findViewById(R.id.tvBronzeLabel);
 
         }
     }
