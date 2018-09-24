@@ -8,7 +8,8 @@ import testapp.jccolumbres.stackoverflowapi.model.UsersReceived;
 public interface StackExchangeEndpoints {
 
 
-    @GET("2.2/users?pagesize=5&order=desc&site=stackoverflow")
-    Call<UsersReceived> getUsers(@Query("sort") String sort);
+    @GET("2.2/users?&order=desc&site=stackoverflow")
+    Call<UsersReceived> getUsers(@Query("sort") String sort,
+                                 @Query("pagesize") String pageSize);
 }
 //&sort=reputation

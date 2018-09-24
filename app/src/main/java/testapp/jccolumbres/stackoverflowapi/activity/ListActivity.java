@@ -45,7 +45,7 @@ public class ListActivity extends AppCompatActivity {
     public void loadUsers(){
         StackExchangeEndpoints apiService =
                 APIClient.getClient().create(StackExchangeEndpoints.class);
-        Call<UsersReceived> call = apiService.getUsers("reputation");
+        Call<UsersReceived> call = apiService.getUsers("reputation","10");
         call.enqueue(new Callback<UsersReceived>() {
             @Override
             public void onResponse(Call<UsersReceived> call, Response<UsersReceived> response) {
