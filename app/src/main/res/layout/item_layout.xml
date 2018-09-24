@@ -72,7 +72,7 @@
                 android:id="@+id/tvSilverLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Silver :"
+                android:text="TextView:"
                 android:textColor="@color/silver"
                 android:textSize="20sp"
                 android:textStyle="normal" />
@@ -96,7 +96,7 @@
                 android:id="@+id/tvBronzeLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bronze :"
+                android:text="TextView:"
                 android:textColor="@color/bronze"
                 android:textSize="20sp"
                 android:textStyle="normal" />
@@ -120,7 +120,7 @@
                 android:id="@+id/tvGoldLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gold :"
+                android:text="TextView:"
                 android:textColor="@color/gold"
                 android:textSize="20sp"
                 android:textStyle="normal" />
