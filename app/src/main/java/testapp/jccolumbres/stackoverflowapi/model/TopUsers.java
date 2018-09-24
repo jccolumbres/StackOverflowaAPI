@@ -2,6 +2,8 @@ package testapp.jccolumbres.stackoverflowapi.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.HashMap;
+
 public class TopUsers {
 
     @SerializedName("display_name")
@@ -14,29 +16,14 @@ public class TopUsers {
     private String location;
 
     @SerializedName("badge_counts")
-    private Badges badges;
+    private HashMap<String, Integer> badges = new HashMap<>();
 
-    public TopUsers(String username, Integer reputation, String location, Badges badges) {
-        this.setUsername(username);
-        this.setReputation(reputation);
-        this.setLocation(location);
-        this.setBadges(badges);
+    public HashMap<String, Integer> getBadges() {
+        return badges;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getReputation() {
-        return reputation.toString();
-    }
-
-    public void setReputation(Integer reputation) {
-        this.reputation = reputation;
+    public void setBadges(HashMap<String, Integer> badges) {
+        this.badges = badges;
     }
 
     public String getLocation() {
@@ -47,11 +34,23 @@ public class TopUsers {
         this.location = location;
     }
 
-    public Badges getBadges() {
-        return badges;
+    public Integer getReputation() {
+        return reputation;
     }
 
-    public void setBadges(Badges badges) {
-        this.badges = badges;
+    public void setReputation(Integer reputation) {
+        this.reputation = reputation;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
+
+
+
+
