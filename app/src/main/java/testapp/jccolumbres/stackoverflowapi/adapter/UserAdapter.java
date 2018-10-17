@@ -1,6 +1,7 @@
 package testapp.jccolumbres.stackoverflowapi.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,9 +15,12 @@ import java.util.List;
 import java.util.Map;
 
 import testapp.jccolumbres.stackoverflowapi.R;
+import testapp.jccolumbres.stackoverflowapi.activity.DetailActivity;
 import testapp.jccolumbres.stackoverflowapi.model.TopUsers;
+import testapp.jccolumbres.stackoverflowapi.model.UsersReceived;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.itemViewHolder> {
+    public static final String ITEM_KEY = "item_key";
     private List<TopUsers> users;
     private int rowLayout;
     private Context ctx;
@@ -61,7 +65,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.itemViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull itemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final itemViewHolder holder, int position) {
         holder.username.setText(users.get(position).getUsername());
         holder.reputation.setText(users.get(position).getReputation().toString());
         holder.location.setText(users.get(position).getLocation());
@@ -84,6 +88,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.itemViewHolder
         holder.goldLbl.setText(pair.getKey() + " : ");
         holder.totalGold.setText(pair.getValue().toString());
 
+        final TopUsers topUsers = users.get(position);
+
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ctx,DetailActivity.class);
+                intent.putExtra(ITEM_KEY,topUsers);
+                ctx.startActivity(intent);
+            }
+        });
+
 
 
     }
@@ -98,20 +113,21 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.itemViewHolder
         LinearLayout linearLayout;
         TextView silverLbl,bronzeLbl,goldLbl;
         TextView username,reputation,location,totalSilver,totalBronze,totalGold;
-
+        View view;
         public itemViewHolder(View v){
             super(v);
-            linearLayout = (LinearLayout)v.findViewById(R.id.llItemView);
-            username = (TextView) v.findViewById(R.id.tvUsername);
-            reputation = (TextView) v.findViewById(R.id.tvReputation);
-            location = (TextView) v.findViewById(R.id.tvLocation);
-            totalSilver = (TextView) v.findViewById(R.id.tvSilverBadges);
-            totalBronze = (TextView) v.findViewById(R.id.tvBronzeBadges);
-            totalGold = (TextView) v.findViewById(R.id.tvGoldBadges);
+            linearLayout = v.findViewById(R.id.llItemView);
+            username = v.findViewById(R.id.tvUsername);
+            reputation = v.findViewById(R.id.tvReputation);
+            location = v.findViewById(R.id.tvLocation);
+            totalSilver = v.findViewById(R.id.tvSilverBadges);
+            totalBronze = v.findViewById(R.id.tvBronzeBadges);
+            totalGold = v.findViewById(R.id.tvGoldBadges);
 
-            goldLbl = (TextView) v.findViewById(R.id.tvGoldLabel);
-            silverLbl = (TextView) v.findViewById(R.id.tvSilverLabel);
-            bronzeLbl = (TextView) v.findViewById(R.id.tvBronzeLabel);
+            goldLbl = v.findViewById(R.id.tvGoldLabel);
+            silverLbl = v.findViewById(R.id.tvSilverLabel);
+            bronzeLbl = v.findViewById(R.id.tvBronzeLabel);
+            view = v;
 
         }
     }
